@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "c:\\python_study\\study_mq_python\\.venv\\Scripts\\python.exe",
+    "python.jediEnabled": false,
+    // "python.linting.flake8Enabled": true,
+    // "python.linting.mypyEnabled": true,
+    // "python.formatting.provider": "autopep8",
+    // "editor.formatOnSave": true,
+    "python.languageServer": "Microsoft",
+    // "python.linting.pylintEnabled": false,
+}
