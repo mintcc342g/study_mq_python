@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third party
+    'rest_framework',
+    'drf_yasg',
+
     # project apps
     'api',
     'event',
@@ -122,3 +126,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Message Queue
+BROKER_URL = 'amqp://mq_user:mqpassword@0.0.0.0:5672//' # 0000으로 안되면 rabbitmq로
+
+CELERY_EVENT = { # todo: 각각 무슨 옵션값인지 확인
+    'BROKER_URL': BROKER_URL,
+    'CELERY_IMPORTS': ('event.handler',),
+    'CELERY_TASK_SERIALIZER': 'json',
+    'CELERY_RESULT_SERIALIZER': 'json',
+    'CELERY_ACCEPT_CONTENT': ['json'],
+    'CELERY_IGNORE_RESULT': True,
+    'BROKER_TRANSPORT_OPTIONS': {
+        'visibility_timeout': 300,
+    },
+    'CELERY_ENABLE_UTC': True,
+}
+
