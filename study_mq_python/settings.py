@@ -130,6 +130,8 @@ STATIC_URL = '/static/'
 
 # Message Queue
 BROKER_URL = 'amqp://mquser:mqpassword@localhost:5672//'
+# 디버그 모드로 로컬에서 장고서버를 띄울거라서, 도커 컨테이너와 통신하기 위해서 localhost(윈도우) 또는 0.0.0.0(맥OS) 을 적어줌.
+# 단, celery worker 는 docker compose의 네트워크를 이용할 것이기 때문에, localhost 대신 메세지 큐 컨테이너의 서비스명인 rabbitmq를 써줬음.
 
 CELERY_EVENT = {
     'BROKER_URL': BROKER_URL,
