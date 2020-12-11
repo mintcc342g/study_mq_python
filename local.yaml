@@ -3,7 +3,13 @@ services:
   rabbitmq:
     image: rabbitmq:latest
     environment:
-      RABBITMQ_DEFAULT_USER: mq_user
+      RABBITMQ_DEFAULT_USER: mquser
       RABBITMQ_DEFAULT_PASS: mqpassword
     ports: 
       - 5672:5672
+
+  worker:
+    build: .
+    volumes:
+      - .:/app
+    command: celery -A event.celery worker --pidfile= --loglevel=DEBUG

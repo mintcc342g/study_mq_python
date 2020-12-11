@@ -14,7 +14,7 @@ task_exchange = Exchange('study.message.queue', type='topic')
 # MQ에 message를 보낼 때 사용
 class EventProducer():
     _conn = None
-    def __init__(self, routing_key="mq.study.event"):
+    def __init__(self, routing_key='mq.study.event'):
         self._route = routing_key
         self._connection()
 

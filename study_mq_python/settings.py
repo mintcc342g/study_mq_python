@@ -129,11 +129,11 @@ STATIC_URL = '/static/'
 
 
 # Message Queue
-BROKER_URL = 'amqp://mq_user:mqpassword@0.0.0.0:5672//' # 0000으로 안되면 rabbitmq로
+BROKER_URL = 'amqp://mquser:mqpassword@localhost:5672//'
 
-CELERY_EVENT = { # todo: 각각 무슨 옵션값인지 확인
+CELERY_EVENT = {
     'BROKER_URL': BROKER_URL,
-    'CELERY_IMPORTS': ('event.handler',),
+    'CELERY_IMPORTS': ('event.consumer',),
     'CELERY_TASK_SERIALIZER': 'json',
     'CELERY_RESULT_SERIALIZER': 'json',
     'CELERY_ACCEPT_CONTENT': ['json'],
