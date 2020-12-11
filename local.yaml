@@ -13,3 +13,5 @@ services:
     volumes:
       - .:/app
     command: celery -A event.celery worker --pidfile= --loglevel=DEBUG
+    environment:
+      BROKER_URL: "amqp://mquser:mqpassword@rabbitmq:5672//"
