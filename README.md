@@ -16,7 +16,7 @@ $ python3 -m venv .venv
 
 # run docker-compose for the worker and broker in the root directory of the project
 ## for mac
-$ docker-compose -f local.yml build && docker-compose -f local.yml up
+$ docker-compose -f local.yaml build && docker-compose -f local.yaml up
 
 ## for windows
 $ docker-compose -f local.yaml -f local.yaml up
